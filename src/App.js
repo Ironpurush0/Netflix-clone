@@ -1,13 +1,14 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import HeroComponent from './components/HeroComponent'
-import AboutComponent from './components/AboutComponent'
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+
+import Jumbotron from './components/Jumbotron'
 
 function App() {
   return (
     <div className="App">
-      <HeroComponent />
+      <Jumbotron />
     </div>
   );
 }
