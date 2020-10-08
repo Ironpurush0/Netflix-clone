@@ -4,10 +4,14 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+import {GlobalStyles} from './Global-styles'
+
 ReactDOM.render(
-  <React.StrictMode>
+  <>
+    <GlobalStyles />  
     <App />
-  </React.StrictMode>,
+  </>
+  ,
   document.getElementById('root')
 );
 
