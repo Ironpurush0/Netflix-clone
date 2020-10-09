@@ -7,7 +7,7 @@ const HeaderContainer = ({children}) => {
         <Header>
             <Header.Frame>
                 <Header.Logo to="/" alt="Netflix" src="/images/logo.svg" />
-                <Header.ButtonLink to="/">Sign in</Header.ButtonLink>
+                <Header.ButtonLink to="/signin">Sign in</Header.ButtonLink>
             </Header.Frame>
             {children}
         </Header>

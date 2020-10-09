@@ -29,7 +29,7 @@ export const Text = styled.div`
 export const Button = styled.button`
     display: flex;
     align-items: center;
-    height: 70px;
+    height: 50px;
     background: #e50914;
     color: white;
     text-transform: uppercase;
@@ -64,7 +64,7 @@ export const Input = styled.input`
     width: 100%;
     border: 0;
     padding: 10px;
-    height: 70px;
+    height: 50px;
     box-sizing: border-box;
 
     @media (max-width: 600px){

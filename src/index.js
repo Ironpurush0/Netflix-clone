@@ -6,10 +6,16 @@ import * as serviceWorker from './serviceWorker';
 
 import {GlobalStyles} from './Global-styles'
 
+import {firebase} from './firebaseConfig.prod'
+import {FirebaseContext} from './context/FirebaseContext'
+
+
 ReactDOM.render(
   <>
-    <GlobalStyles />  
-    <App />
+    <FirebaseContext.Provider value={{firebase}}>
+      <GlobalStyles />  
+      <App />
+    </FirebaseContext.Provider>
   </>
   ,
   document.getElementById('root')
