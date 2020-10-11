@@ -23,8 +23,20 @@ Form.Text = function FormText({children, ...restProps}){
 return <Text {...restProps}>{children}</Text>
 }
 
+Form.Input = function FormInput({children, ...restProps}){
+return <Input {...restProps} />
+}
+
 Form.Base = function FormBase({children, ...restProps}){
 return <Base {...restProps}>{children}</Base>
+}
+
+Form.Submit = function FormSubmit({children, ...restProps}){
+return <Submit {...restProps}>{children}</Submit>
+}
+
+Form.Link = function FormLink({children, ...restProps}){
+return <Link {...restProps}>{children}</Link>
 }
 
 export default Form
