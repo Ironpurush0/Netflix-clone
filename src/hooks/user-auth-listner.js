@@ -20,5 +20,5 @@ export const useAuthListner = () => {
         return () => listner()
     }, [])
 
-    return user
+    return {user}
 }

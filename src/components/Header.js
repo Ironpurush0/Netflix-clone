@@ -1,10 +1,18 @@
 import React from 'react'
 import {Link as ReactRouterLink} from 'react-router-dom'
 
-import {Background, Container, ButtonLink, Logo} from '../styles/HeaderStyles'
+import {Background, Container, ButtonLink, FeatureCallOut, Text, Feature, Logo} from '../styles/HeaderStyles'
 
 const Header = ({bg=true, children, ...restProps}) => {
     return bg ? <Background {...restProps}>{children}</Background> : children
+}
+
+Header.Feature = function HeaderFeature({children, ...restProps}){
+return <Feature {...restProps}>{children}</Feature>
+}
+
+Header.FeatureCallOut = function HeaderFeatureCallOut({children, ...restProps}){
+return <FeatureCallOut {...restProps}>{children}</FeatureCallOut>
 }
 
 Header.Frame = function HeaderFrame({children, ...restProps}){
@@ -21,6 +29,10 @@ Header.Logo = function HeaderLogo({to, ...restProps}){
             <Logo {...restProps} />
         </ReactRouterLink>
     )
+}
+
+Header.Text = function HeaderText({children, ...restProps}){
+return <Text {...restProps}>{children}</Text>
 }
 
 export default Header

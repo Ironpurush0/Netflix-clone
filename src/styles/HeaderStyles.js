@@ -6,7 +6,7 @@ export const Background = styled.div`
     display: flex;
     flex-direction: column;
     background: url(${({src}) => src ? `../images/misc/${src}.jpg` : '../images/misc/home-bg.jpg'})
-    top left / cover no-repeat fixed;
+    top left / cover no-repeat;
 `
 
 export const Container = styled.div`
@@ -24,6 +24,25 @@ export const Container = styled.div`
     @media (max-width: 1000px){
         margin: 0 30px;
     }
+`
+
+export const Feature = styled(Container)`
+    padding: 150px 0px 500px 0px;
+    flex-direction: column;
+    align-items: normal;
+    width: 50%;
+/* 
+    @media (max-width: 600px){
+        display: none;
+    } */
+`
+export const FeatureCallOut = styled.h1`
+    color: white;
+    font-size: 50px;
+    font-weight: bold;
+    line-height: normal;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.45);
+    margin-bottom: 20px;
 `
 
 export const Logo = styled.img`
@@ -54,4 +73,12 @@ export const ButtonLink = styled(ReacrRouterLink)`
     &:hover{
         background-color: #f40612;
     }
+`
+
+export const Text = styled.p`
+    color: white;
+    font-size: 22px;
+    line-height: normal;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.45);
+    margin: 0;
 `

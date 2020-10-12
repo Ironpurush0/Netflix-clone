@@ -8,7 +8,8 @@ import {useAuthListner} from './hooks/user-auth-listner'
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 
 const App = () => {
-  const {user} = useAuthListner() ;
+  const {user} = useAuthListner()
+  console.log(user)
 
   return (
     <Router>
