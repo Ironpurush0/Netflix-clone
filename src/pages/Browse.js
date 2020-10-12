@@ -15,16 +15,10 @@ const Browse = () => {
     console.log(slides)
     console.log(films)
     console.log(series)
-    const logout = async () => {
-        await firebase.auth().signOut();
-        history.goBack()
-    }
 
     return (
         <div>
             <BrowseContainer slides={slides} />
-            I am browse page
-            <button onClick={logout}>Logout</button>
         </div>
     )
 }
