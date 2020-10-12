@@ -1,7 +1,7 @@
 import React from 'react'
 import {Link as ReactRouterLink} from 'react-router-dom'
 
-import {Background, Container, ButtonLink, FeatureCallOut, Text, Feature, Logo} from '../styles/HeaderStyles'
+import {Background, Container, ButtonLink, FeatureCallOut, Text, Link, Feature, Logo} from '../styles/HeaderStyles'
 
 const Header = ({bg=true, children, ...restProps}) => {
     return bg ? <Background {...restProps}>{children}</Background> : children
@@ -23,6 +23,9 @@ Header.ButtonLink = function HeaderButtonLink({children, ...restProps}){
     return <ButtonLink {...restProps}>{children}</ButtonLink>
 }
 
+Header.TextLink = function HeaderTextLink({children, ...restProps}){
+return <Link {...restProps}>{children}</Link>
+}
 Header.Logo = function HeaderLogo({to, ...restProps}){
     return (
         <ReactRouterLink to={to}>

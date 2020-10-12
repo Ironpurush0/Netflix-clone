@@ -1,5 +1,5 @@
 import React from 'react'
-import {Container, Text, Button, Input} from '../styles/OptFormStyles'
+import {Container, Text, Button, Input, Break} from '../styles/OptFormStyles'
 
 function OptForm({children, ...restProps}) {
 return <Container {...restProps}>{children}</Container>
@@ -17,6 +17,10 @@ OptForm.Button = function OptFormButton({children, ...restProps}){
 
 OptForm.Text = function OptFormText({children, ...restProps}){
     return <Text {...restProps}>{children}</Text>
+}
+
+OptForm.Break = function OptFormBreak(){
+    return <Break />
 }
 
 

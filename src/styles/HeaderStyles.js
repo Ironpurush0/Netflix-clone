@@ -7,7 +7,11 @@ export const Background = styled.div`
     flex-direction: column;
     background: url(${({src}) => src ? `../images/misc/${src}.jpg` : '../images/misc/home-bg.jpg'})
     top left / cover no-repeat;
-`
+
+    @media (max-width: 1100px){
+        ${({dontShowOnSmallViewPort}) => dontShowOnSmallViewPort && `background: none`}
+    }
+`;
 
 export const Container = styled.div`
     display: flex;
@@ -31,6 +35,7 @@ export const Feature = styled(Container)`
     flex-direction: column;
     align-items: normal;
     width: 50%;
+    height: 100%;
 /* 
     @media (max-width: 600px){
         display: none;
@@ -81,4 +86,21 @@ export const Text = styled.p`
     line-height: normal;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.45);
     margin: 0;
+`
+
+export const Link = styled.p`
+    color: white;
+    text-decoration: none;
+    margin-right: 30px;
+    margin-top: 10px;
+    font-weight: ${({active}) => (active === 'true' ? '700' : 'normal')};
+    cursor: pointer;
+
+    &:hover{
+        font-weight: bold;
+    }
+
+    &::last-of-type{
+        margin-right: 0;
+    }
 `

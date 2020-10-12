@@ -26,9 +26,11 @@ const BrowseContainer = ({slides}) => {
         {
             loading ? (<Loading src={user.photoURL} />) : (<Loading.ReleaseBody />)
         }
-        <Header src="joker1">
+        <Header src="joker1" dontShowOnSmallViewPort>
             <Header.Frame>
                 <Header.Logo to="/home" src={logo} alt="Netflix" />
+                <Header.TextLink>Series</Header.TextLink>
+                <Header.TextLink>Films</Header.TextLink>
             </Header.Frame>
             <Header.Feature>
                 <Header.FeatureCallOut>Watch joker now.</Header.FeatureCallOut>
