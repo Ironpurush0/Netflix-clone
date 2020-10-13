@@ -4,7 +4,7 @@ import SelectProfileContainer from './ProfileContainer'
 import {FirebaseContext} from '../context/FirebaseContext'
 import Loading from '../components/Loading'
 import Header from '../components/Header'
-
+import {useHistory} from 'react-router-dom'
 
 import logo from '../logo.svg'
 
@@ -14,6 +14,12 @@ const BrowseContainer = ({slides}) => {
     const [loading, setLoading] = useState(true);
     const {firebase} = useContext(FirebaseContext);
     const user = firebase.auth().currentUser || {}
+    const history = useHistory()
+
+    const logout = async () => {
+        await firebase.auth().signOut();
+        history.goBack()
+    }
 
     console.log(profile)
     useEffect(() => {
@@ -44,7 +50,7 @@ const BrowseContainer = ({slides}) => {
                                 <Header.TextLink>{user.displayName}</Header.TextLink>
                             </Header.Group>
                             <Header.Group>
-                                <Header.TextLink onClick={() => firebase.auth().signout()}>Sign out</Header.TextLink>
+                                <Header.TextLink onClick={logout}>Sign out</Header.TextLink>
                             </Header.Group>
                         </Header.Dropdown>
                     </Header.Profile>
@@ -53,6 +59,7 @@ const BrowseContainer = ({slides}) => {
             <Header.Feature>
                 <Header.FeatureCallOut>Watch joker now.</Header.FeatureCallOut>
                 <Header.Text>In Gotham City, mentally troubled comedian Arthur Fleck is disregarded and mistreated by society. He then embarks on a downward spiral of revolution and bloody crime. This path brings him face-to-face with his alter-ego: the Joker.</Header.Text>
+                <Header.Button>Play</Header.Button>
             </Header.Feature>
         </Header>
     </> ) : (

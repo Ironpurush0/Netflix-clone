@@ -13,6 +13,14 @@ export const Background = styled.div`
     }
 `;
 
+export const Button = styled.button`
+    box-shadow: 0 0.6vw 1vw -0.4vw rgba(0, 0, 0, 0.35);
+    background-color: #e6e6e6;
+    color: #000;
+    border-width: 0;
+
+`
+
 export const Container = styled.div`
     display: flex;
     margin: 0 56px;
@@ -188,6 +196,9 @@ export const SearchInput = styled.input`
     height: 30px;
     font-size: 14px;
     margin-left: ${({active}) => (active === true ? '10px': '0px')};
+    padding: ${({active}) => (active === true ? '0 10px' : '0')};
+    opacity: ${({active}) => (active === true ? '1' : '0')};
+    width: ${({active}) => (active === true ? '200px' : '0px')}
 `
 
 export const Profile = styled.div`

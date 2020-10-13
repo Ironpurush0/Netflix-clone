@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import {Link as ReactRouterLink} from 'react-router-dom'
 
-import {Background, Container, Search, SearchIcon, SearchInput, Dropdown, ButtonLink, FeatureCallOut, Picture, Profile, Group, Text, Link, Feature, Logo} from '../styles/HeaderStyles'
+import {Background, Button, Container, Search, SearchIcon, SearchInput, Dropdown, ButtonLink, FeatureCallOut, Picture, Profile, Group, Text, Link, Feature, Logo} from '../styles/HeaderStyles'
 
 const Header = ({bg=true, children, ...restProps}) => {
     return bg ? <Background {...restProps}>{children}</Background> : children
@@ -22,6 +22,10 @@ Header.Search = function HeaderSearchTerm({searchTerm, setSearchTerm, ...restPro
             <SearchInput placeholder="Search" active={searchActive} value={searchTerm} onChange={event => setSearchTerm(event.target.value)} />
         </Search>
     )
+}
+
+Header.Button = function HeaderButton({children, ...restProps}){
+return <Button {...restProps}>{children}</Button>
 }
 
 Header.FeatureCallOut = function HeaderFeatureCallOut({children, ...restProps}){
