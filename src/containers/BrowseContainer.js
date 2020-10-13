@@ -4,41 +4,46 @@ import SelectProfileContainer from './ProfileContainer'
 import {FirebaseContext} from '../context/FirebaseContext'
 import Loading from '../components/Loading'
 import Header from '../components/Header'
+import Card from '../components/Card'
 import {useHistory} from 'react-router-dom'
 
 import logo from '../logo.svg'
 
 const BrowseContainer = ({slides}) => {
+    const [category, setCategory] = useState('series');
     const [searchTerm, setSearchTerm] = useState('');
     const [profile, setProfile] = useState({});
     const [loading, setLoading] = useState(true);
+    const [slideRows, setSlideRows] = useState([])
+
     const {firebase} = useContext(FirebaseContext);
     const user = firebase.auth().currentUser || {}
-    const history = useHistory()
 
     const logout = async () => {
         await firebase.auth().signOut();
-        history.goBack()
     }
 
-    console.log(profile)
     useEffect(() => {
         setTimeout(() => {
             setLoading(false)
         }, 3000)
     },[profile.displayName])
 
+    useEffect(() => {
+        setSlideRows(slides[category])
+    }, [slides, category])
+
     return profile.displayName ? (
     <>
         {
             loading ? (<Loading src={user.photoURL} />) : (<Loading.ReleaseBody />)
         }
-        <Header src="joker1" dontShowOnSmallViewPort>
+        <Header src="witcher1" dontShowOnSmallViewPort>
             <Header.Frame>
                 <Header.Group>
                 <Header.Logo to="/home" src={logo} alt="Netflix" />
-                <Header.TextLink>Series</Header.TextLink>
-                <Header.TextLink>Films</Header.TextLink>
+                <Header.TextLink active={category === 'series' ? 'true' : 'false'} onClick={() => setCategory('series')}>Series</Header.TextLink>
+                <Header.TextLink active={category === 'films' ? 'true' : 'false'} onClick={() => setCategory('films')}>Films</Header.TextLink>
                 </Header.Group>
                 <Header.Group>
                     <Header.Search  searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
@@ -57,11 +62,30 @@ const BrowseContainer = ({slides}) => {
                 </Header.Group>
             </Header.Frame>
             <Header.Feature>
-                <Header.FeatureCallOut>Watch joker now.</Header.FeatureCallOut>
-                <Header.Text>In Gotham City, mentally troubled comedian Arthur Fleck is disregarded and mistreated by society. He then embarks on a downward spiral of revolution and bloody crime. This path brings him face-to-face with his alter-ego: the Joker.</Header.Text>
+                <Header.FeatureCallOut>Watch Witcher now.</Header.FeatureCallOut>
+                <Header.Text>Geralt of Rivia, a mutated monster-hunter for hire, journeys toward his destiny in a turbulent world where people often prove more wicked than beasts.</Header.Text>
                 <Header.Button>Play</Header.Button>
             </Header.Feature>
         </Header>
+
+        <Card.Group>
+            {slideRows.map(slideItem => (
+                <Card key={`${category}-${slideItem.title.toLowerCase()}`}>
+                    <Card.Title>{slideItem.title}</Card.Title>
+                    <Card.Entities>
+                        {slideItem.data.map((item) => (
+                            <Card.Item key={item.docId} item={item}>
+                                <Card.Image src={`/images/${category}/${item.genre}/${item.slug}/small.jpg`} />
+                                <Card.Meta>
+                        <Card.Title>{item.title}</Card.Title>
+                        <Card.SubTitle>{item.description}</Card.SubTitle>
+                                </Card.Meta>
+                            </Card.Item>
+                        ))}
+                    </Card.Entities>
+                </Card>
+            ))}
+        </Card.Group>
     </> ) : (
         <SelectProfileContainer user={user} setProfile={setProfile} />
     )
