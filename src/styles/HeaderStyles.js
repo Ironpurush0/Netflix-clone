@@ -440,7 +440,7 @@ export const Button = styled.button`
   max-width: 130px;
   font-weight: bold;
   font-size: 20px;
-  margin-top: 10px;
+  margin-top: 20px;
   cursor: pointer;
   transition: background-color 0.5s ease;
   &:hover {
