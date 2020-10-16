@@ -1,6 +1,5 @@
 import React, {useState} from 'react'
 import {Link as ReactRouterLink} from 'react-router-dom'
-
 import {Background, Button, Container, Search, SearchIcon, SearchInput, Dropdown, ButtonLink, FeatureCallOut, Picture, Profile, Group, Text, Link, Feature, Logo} from '../styles/HeaderStyles'
 
 const Header = ({bg=true, children, ...restProps}) => {

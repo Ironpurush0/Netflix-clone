@@ -1,10 +1,13 @@
 import React, {useState, useContext, useEffect} from 'react'
 import SelectProfileContainer from './ProfileContainer'
+import FooterContainer from '../containers/FooterContainer'
 import {FirebaseContext} from '../context/FirebaseContext'
 import Loading from '../components/Loading'
 import Header from '../components/Header'
 import Card from '../components/Card'
+import Player from '../components/Player'
 import {useHistory} from 'react-router-dom'
+import Fuse from 'fuse.js'
 
 import logo from '../logo.svg'
 
@@ -28,9 +31,23 @@ const BrowseContainer = ({slides}) => {
         }, 3000)
     },[profile.displayName])
 
+
     useEffect(() => {
         setSlideRows(slides[category])
     }, [slides, category])
+
+
+    useEffect(() => {
+        const fuse = new Fuse(slideRows, {key: ['data.description', 'data.title', 'data.genre']})
+        const result = fuse.search(searchTerm).map(({item}) => item);
+
+        if(slideRows.length > 0 && searchTerm.length > 3 && result.length > 0){
+            setSlideRows(result)
+        } else {
+            slideRows(slides[category])
+        }
+    }, [searchTerm])
+
 
     return profile.displayName ? (
     <>
@@ -83,12 +100,15 @@ const BrowseContainer = ({slides}) => {
                         ))}
                     </Card.Entities>
                     <Card.Feature category={category}>
-                        <p>Hello</p>
+                        <Player>
+                            <Player.Button />
+                            <Player.Video src="/videos/bunny.mp4" />
+                        </Player>
                     </Card.Feature>
                 </Card>
             ))}
         </Card.Group>
-
+        <FooterContainer />
     </> ) : (
         <SelectProfileContainer user={user} setProfile={setProfile} />
     )
