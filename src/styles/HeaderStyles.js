@@ -408,7 +408,8 @@ export const Feature = styled(Container)`
     margin-top: 20px;
 
     ${FeatureCallOut}{
-         font-size: 30px;
+         font-size: 20px;
+         height: 100%;
      }
   }
 `;

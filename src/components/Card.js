@@ -79,7 +79,6 @@ Card.Feature = function CardFeature({children, category, ...restProps}){
                 <FeatureClose onClick={() => setShowFeature(false)}>
                     <img src="/images/icons/close.png" alt="Close" />
                 </FeatureClose>
-            </Content>
 
             <Group margin="30px 0" flexDirection="row" alignItems="center">
                 <Maturity rating={itemFeature.maturity}>
@@ -89,6 +88,8 @@ Card.Feature = function CardFeature({children, category, ...restProps}){
                     {itemFeature.genre.charAt(0).toUpperCase() + itemFeature.genre.slice(1)}
                 </FeatureText>
             </Group>
+            {children}
+            </Content>
         </Feature>
     ) : null
 }
