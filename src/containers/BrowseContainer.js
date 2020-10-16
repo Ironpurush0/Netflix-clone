@@ -9,6 +9,8 @@ import Player from '../components/Player'
 import {useHistory} from 'react-router-dom'
 import Fuse from 'fuse.js'
 
+import {Data} from '../utills/header.content'
+
 import logo from '../logo.svg'
 
 const BrowseContainer = ({slides}) => {
@@ -38,13 +40,13 @@ const BrowseContainer = ({slides}) => {
 
 
     useEffect(() => {
-        const fuse = new Fuse(slideRows, {key: ['data.description', 'data.title', 'data.genre']})
+        const fuse = new Fuse(slideRows, {keys: ['data.description', 'data.title', 'data.genre']})
         const result = fuse.search(searchTerm).map(({item}) => item);
 
         if(slideRows.length > 0 && searchTerm.length > 3 && result.length > 0){
             setSlideRows(result)
         } else {
-            slideRows(slides[category])
+            setSlideRows(slides[category])
         }
     }, [searchTerm])
 
@@ -54,7 +56,7 @@ const BrowseContainer = ({slides}) => {
         {
             loading ? (<Loading src={user.photoURL} />) : (<Loading.ReleaseBody />)
         }
-        <Header src="witcher1" dontShowOnSmallViewPort>
+        <Header src={category === 'series' ? "witcher1" : "extraction" } dontShowOnSmallViewPort>
             <Header.Frame>
                 <Header.Group>
                 <Header.Logo to="/home" src={logo} alt="Netflix" />
@@ -62,7 +64,7 @@ const BrowseContainer = ({slides}) => {
                 <Header.TextLink active={category === 'films' ? 'true' : 'false'} onClick={() => setCategory('films')}>Films</Header.TextLink>
                 </Header.Group>
                 <Header.Group>
-                    <Header.Search  searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+                    <Header.Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
                     <Header.Profile>
                         <Header.Picture src={user.photoURL} />
                         <Header.Dropdown>
@@ -78,8 +80,8 @@ const BrowseContainer = ({slides}) => {
                 </Header.Group>
             </Header.Frame>
             <Header.Feature>
-                <Header.FeatureCallOut>Watch Witcher now.</Header.FeatureCallOut>
-                <Header.Text>Geralt of Rivia, a mutated monster-hunter for hire, journeys toward his destiny in a turbulent world where people often prove more wicked than beasts.</Header.Text>
+    <Header.FeatureCallOut>{category === 'series' ? Data.series.title : Data.film.title}</Header.FeatureCallOut>
+    <Header.Text>{category === 'series' ? Data.series.desc : Data.film.desc}</Header.Text>
                 <Header.Button>Play</Header.Button>
             </Header.Feature>
         </Header>

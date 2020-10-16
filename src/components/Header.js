@@ -14,8 +14,8 @@ Header.Search = function HeaderSearchTerm({searchTerm, setSearchTerm, ...restPro
     const [searchActive, setSearchActive] = useState(false)
 
     return (
-        <Search {...restProps} onClick={() => setSearchActive(searchActive => !searchActive)} >
-            <SearchIcon>
+        <Search {...restProps} >
+            <SearchIcon onClick={() => setSearchActive(!searchActive)}>
                 <img src="/images/icons/search.png" alt="Search" />
             </SearchIcon>
             <SearchInput placeholder="Search" active={searchActive} value={searchTerm} onChange={event => setSearchTerm(event.target.value)} />

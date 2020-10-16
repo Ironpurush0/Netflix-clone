@@ -14,7 +14,7 @@ const Home = () => {
             <HeaderContainer>
                 <Feature>
                     <Feature.Title>Unlimited films, TV programmes and more.</Feature.Title>
-                    <Feature.Subtitle>Watch anywhere. Cancel anytime</Feature.Subtitle>
+                    <Feature.SubTitle>Watch anywhere. Cancel anytime</Feature.SubTitle>
 
                     <OptForm>
                             <OptForm.Input placeholder="Email" />

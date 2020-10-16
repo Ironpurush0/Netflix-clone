@@ -1,5 +1,5 @@
 import React from 'react'
-import {Container, Title, Subtitle} from '../styles/FeatureStyles'
+import {Container, Title, SubTitle} from '../styles/FeatureStyles'
 
 const Feature = ({children, ...restProps}) => {
 return <Container {...restProps}>{children}</Container>
@@ -9,8 +9,8 @@ Feature.Title = function FeatureTitle({children, ...restProps}){
 return <Title {...restProps}>{children}</Title>
 }
 
-Feature.Subtitle = function FeatureSubTitle({children, ...restProps}){
-return <Subtitle {...restProps}>{children}</Subtitle>
+Feature.SubTitle = function FeatureSubTitle({children, ...restProps}){
+return <SubTitle {...restProps}>{children}</SubTitle>
 }
 
 export default Feature
