@@ -80,8 +80,8 @@ const BrowseContainer = ({slides}) => {
                 </Header.Group>
             </Header.Frame>
             <Header.Feature>
-    <Header.FeatureCallOut>{category === 'series' ? Data.series.title : Data.film.title}</Header.FeatureCallOut>
-    <Header.Text>{category === 'series' ? Data.series.desc : Data.film.desc}</Header.Text>
+            <Header.FeatureCallOut>{category === 'series' ? Data.series.title : Data.film.title}</Header.FeatureCallOut>
+            <Header.Text>{category === 'series' ? Data.series.desc : Data.film.desc}</Header.Text>
                 <Header.Button>Play</Header.Button>
             </Header.Feature>
         </Header>
