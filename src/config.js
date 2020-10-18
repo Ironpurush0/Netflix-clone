@@ -1,4 +1,4 @@
-export const config = {
+export default {
     apiKey: "AIzaSyCTVngfHh5bnT6k37LB3JXadVadcNpaZ2U",
     authDomain: "netflix-clone-d4fd8.firebaseapp.com",
     databaseURL: "https://netflix-clone-d4fd8.firebaseio.com",
