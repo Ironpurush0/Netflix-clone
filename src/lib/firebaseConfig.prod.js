@@ -5,9 +5,11 @@ import {CONFIG} from '../config'
 import 'firebase/firebase-firestore'
 import 'firebase/firebase-auth'
 
+const firebaseConfig = CONFIG
 
 
-const firebase = Firebase.initializeApp(CONFIG);
+
+const firebase = Firebase.initializeApp(firebaseConfig);
 
 // seedDatabase(firebase)
 
