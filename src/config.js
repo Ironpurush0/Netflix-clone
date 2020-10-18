@@ -7,4 +7,4 @@ export const config = {
     messagingSenderId: "936527375738",
     appId: "1:936527375738:web:c24eca661f225f32f33ac3",
     measurementId: "G-7MNH3BWDTY"
-  }
+}
