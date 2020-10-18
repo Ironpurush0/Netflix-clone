@@ -1,13 +1,13 @@
 import Firebase from 'firebase/app'
 import {seedDatabase} from '../seed'
-import {config} from '../config'
+import {CONFIG} from '../config'
 
 import 'firebase/firebase-firestore'
 import 'firebase/firebase-auth'
 
 
 
-const firebase = Firebase.initializeApp(config);
+const firebase = Firebase.initializeApp(CONFIG);
 
 // seedDatabase(firebase)
 
