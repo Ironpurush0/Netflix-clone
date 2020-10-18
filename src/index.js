@@ -6,7 +6,7 @@ import * as serviceWorker from './serviceWorker';
 
 import {GlobalStyles} from './Global-styles'
 
-import {firebase} from './firebaseConfig.prod'
+import {firebase} from './lib/firebaseConfig.prod'
 
 import {FirebaseContext} from './context/FirebaseContext'
 
